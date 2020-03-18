@@ -8,13 +8,21 @@ using namespace std;
 Point::Point()
 {
     m_x = m_y = 10;
-	cout<<"quelque chose"<< endl;
+    m_char = 'X';
 }
 Point::Point(int x, int y)
 {
     this->m_x = x;
     this->m_y = y;
-	cout<<"quelque chose"<< endl;
+    m_char = 'X';
+}
+
+Point::Point(int x, int y , char charac )
+{
+    this->m_x = x;
+    this->m_y = y;
+    m_char = charac;
+
 }
 
 void Point::setPoint(int x, int y)
@@ -69,6 +77,16 @@ void Point::drawPoint()
     Board *b;
     b = Board::getInstance(); // dessine les points
     b->dessinerPoint(*this);
+}
+
+void Point::setChar( char value )
+{
+    m_char = value;
+}
+
+char Point::getChar()
+{
+    return m_char;
 }
 
 void Point::erasePoint()
