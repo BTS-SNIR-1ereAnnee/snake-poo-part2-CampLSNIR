@@ -26,7 +26,7 @@ int kbhit(void);
 
 int main()
 {
-    int directionEnCours=TOUCHE_KEY_DOWN;
+    int directionEnCours=TOUCHE_KEY_UP;
 
     // pointeurs sur l'unique instance de la classe fenetre
     Board *fenetre;
@@ -38,8 +38,7 @@ int main()
     keypad (stdscr,true);
     noecho();
 
-    bool collision = FALSE;
-    while (!collision)
+    while(!( serpent.checkColisionWithBoard() or serpent.checkColisionWithSnake()) )
     {
         if(kbhit())
         {
@@ -62,9 +61,10 @@ int main()
 
         }
         serpent.move(directionEnCours);
-        collision = serpent.checkColisionWithBoard();
+
         serpent.affichSerpent();
-        usleep (150000);
+
+        usleep (200000);
 
     }
     //getchar();
