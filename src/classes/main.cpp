@@ -38,7 +38,7 @@ int main()
     keypad (stdscr,true);
     noecho();
 
-    while(!( serpent.checkColisionWithBoard() or serpent.checkColisionWithSnake()) )
+    while(not( serpent.checkColisionWithBoard() or serpent.checkColisionWithSnake()) )
     {
         if(kbhit())
         {
